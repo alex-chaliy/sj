@@ -25,6 +25,13 @@ function Rabbit(name) {
 /** Child Class inherits all from the Parent Class */ 
 Rabbit.prototype = Object.create(Animal.prototype);
 
+console.log("new Rabbit : ", new Rabbit); // 'Animal'
+Rabbit.prototype.constructor = Rabbit; /** @info: 
+  it will change type Animal (parent) to type Rabbit (child class) for 
+  instances of the child class
+*/
+console.log("new Rabbit : ", new Rabbit, '\n'); // but now it is 'Rabbit' as expected `
+
 /** ! add methods to the child class only after inheritance */
 Rabbit.prototype.jump = function(topGap = 1) {
 	this.top += topGap;
